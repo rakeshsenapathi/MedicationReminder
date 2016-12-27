@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#5C6BC0"
-    android:gravity="center|center_vertical">
+    android:gravity="center|center_vertical"
+    android:orientation="horizontal">
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/logotext"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:text="@string/splashtxt"
-        android:textSize="20sp"
-        android:layout_marginRight="5dp"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logotexti"
-        android:textStyle="italic"
+        android:layout_marginRight="5dp"
+        android:text="@string/splashtxt"
         android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/logotexti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/splashtxti"
-        android:textSize="20sp"/>
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 </LinearLayout>

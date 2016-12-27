@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.senapathi.medicationreminder" >
+    package="com.senapathi.medicationreminder">
 
     <application
+        android:name=".activities.FireApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="MR"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".activities.FireApp">
+        android:theme="@style/AppTheme">
         <!--Splash Screen Activity-->
-        <activity android:name=".activities.SplashScreenActivity" >
+        <activity android:name=".activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,8 +18,10 @@
         </activity>
         <!--Main Activity-->
         <activity
-            android:name=".activities.MainActivity">
-        </activity>
+            android:name=".activities.MainActivity"
+            android:configChanges="keyboardHidden|screenLayout|screenSize|locale"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
