@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MedicationReminder</string>
+    <string name="splashtxt">Medication</string>
+    <string name="splashtxti"> Reminder</string>
 </resources>
