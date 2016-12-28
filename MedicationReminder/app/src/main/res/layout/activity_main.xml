@@ -1,55 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFF1F1"
-    tools:context="com.senapathi.medicationreminder.activities.MainActivity">
+    android:background="#EFF1F1">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:id="@+id/logolayout"
-        android:orientation="horizontal"
-        android:padding="30dp"
-        android:layout_marginBottom="20dp">
+        android:layout_height="match_parent"
+        android:background="#EFF1F1"
+        android:orientation="vertical"
+        tools:context="com.senapathi.medicationreminder.activities.MainActivity">
+
+        <LinearLayout
+            android:id="@+id/logolayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="30dp">
+
+            <TextView
+                android:id="@+id/logotext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/splashtxt"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/logotexti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/splashtxti"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            app:cardBackgroundColor="#fff"
+            app:cardElevation="3dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPadding="8dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/email_icon"
+                android:drawablePadding="15dp"
+                android:hint="Email id"
+                android:maxLines="1"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"
+            app:cardBackgroundColor="#fff"
+            app:cardElevation="3dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPadding="8dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/password_icon"
+                android:drawablePadding="15dp"
+                android:hint="Password"
+                android:maxLines="1"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary"
+            android:text="Log In"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/logotext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="@string/splashtxt"
-            android:textColor="@android:color/black"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:padding="8dp"
+            android:text="Forgot Password?"
+            android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/logotexti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/splashtxti"
-            android:textColor="@android:color/black"
-            android:textSize="25sp"
-            android:textStyle="italic" />
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:padding="10dp"
+            android:text="Create a new Account"
+            android:textColor="@android:color/black" />
     </LinearLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        style="@s"
-        android:layout_marginRight="20dp"
-        app:cardBackgroundColor="@android:color/white"
-        android:layout_below="@+id/logolayout">
-        <EditText
-            android:layout_width="wrap_content"
-            android:textColor="@android:color/black"
-            android:layout_height="wrap_content"
-            android:hint="Enter email id"/>
-    </android.support.v7.widget.CardView>
-</RelativeLayout>
+</ScrollView>
