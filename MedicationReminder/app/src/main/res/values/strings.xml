@@ -1,4 +1,5 @@
 <resources>
     <string name="splashtxt">Medication</string>
     <string name="splashtxti"> Reminder</string>
+    <string name="email_id">Email id</string>
 </resources>
