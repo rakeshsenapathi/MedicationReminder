@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="#EFF1F1"
         android:orientation="vertical"
-        tools:context="com.senapathi.medicationreminder.activities.MainActivity">
+        tools:context="com.senapathi.medicationreminder.main.activities.MainActivity">
 
         <LinearLayout
             android:id="@+id/logolayout"

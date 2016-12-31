@@ -1,4 +1,4 @@
-package com.senapathi.medicationreminder.activities;
+package com.senapathi.medicationreminder.main.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,18 +21,18 @@ public class SplashScreenActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this,MainActivity.class);
+                Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(i);
 
                 finish();
             }
 
-        },SPLASH_TIME_OUT);
+        }, SPLASH_TIME_OUT);
     }
 
 }

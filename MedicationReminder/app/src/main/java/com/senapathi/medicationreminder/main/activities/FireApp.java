@@ -1,4 +1,4 @@
-package com.senapathi.medicationreminder.activities;
+package com.senapathi.medicationreminder.main.activities;
 
 import android.app.Application;
 
