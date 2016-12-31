@@ -26,46 +26,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView forgotPwd;
     private TextView mNewAccount;
     private FirebaseAuth mAuth;
+    // Creating dialog object to access its dialog methods
+    Dialog dialog = new Dialog();
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Instantiating the FirebaseAuth Object
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
 
-
+        //
         mEmailField = (EditText) findViewById(R.id.emailedt);
         mPwfField = (EditText) findViewById(R.id.pwdedt);
         loginButton = (Button) findViewById(R.id.loginbtn);
         forgotPwd = (TextView) findViewById(R.id.fpwdtext);
         mNewAccount = (TextView) findViewById(R.id.newacctext);
+        //
 
+        // AuthListener to get the current state of the user
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
+                    dialog.closeProgressDialog(MainActivity.this);
                     startActivity(new Intent(MainActivity.this, AccountActivity.class));
                 }
             }
         };
+        //
 
+        // on click listeners
         loginButton.setOnClickListener(this);
         forgotPwd.setOnClickListener(this);
         mNewAccount.setOnClickListener(this);
-
+        //
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
+        //Setting the Auth Listener to listen to the AuthStates
         mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        //UnAuthorizing the user
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
@@ -74,15 +84,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            // Click Listener for Login Button
             case R.id.loginbtn:
                 String email = mEmailField.getText().toString();
                 String password = mPwfField.getText().toString();
 
+                // Checking for EmptyFields
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     Toast.makeText(MainActivity.this, "Empty fields", Toast.LENGTH_SHORT).show();
-                } else {
-
-                    Dialog dialog = new Dialog();
+                }
+                // If not found then SignIn with email,password and change the AuthState(CurrentUser!= null)
+                else {
                     dialog.showProgressDialog(MainActivity.this);
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -92,13 +105,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         }
                     });
-
-
                 }
                 break;
+
+            //Click Listener for ForgotPassword Button
             case R.id.fpwdtext:
                 Toast.makeText(MainActivity.this, "Forgot Password", Toast.LENGTH_SHORT).show();
                 break;
+
+            //Click Listener for Creating a NewAccount
             case R.id.newacctext:
                 Toast.makeText(MainActivity.this, "New Account", Toast.LENGTH_SHORT).show();
                 break;
