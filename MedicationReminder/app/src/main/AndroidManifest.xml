@@ -27,6 +27,16 @@
             android:configChanges="keyboardHidden|screenLayout|screenSize|locale"
             android:screenOrientation="portrait" />
         <activity android:name=".main.activities.BaseActivity" />
+        <activity
+            android:name=".main.activities.SignUpActivity"
+            android:configChanges="keyboardHidden|screenLayout|screenSize|locale"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".main.activities.ForgotPasswordActivity"
+            android:configChanges="keyboardHidden|screenLayout|screenSize|locale"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

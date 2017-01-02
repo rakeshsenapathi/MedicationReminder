@@ -2,4 +2,5 @@
     <string name="splashtxt">Medication</string>
     <string name="splashtxti"> Reminder</string>
     <string name="email_id">Email id</string>
+    <string name="reset_password">Enter your Registered Email address to get password reset instructions</string>
 </resources>
