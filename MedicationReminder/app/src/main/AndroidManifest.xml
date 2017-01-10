@@ -9,14 +9,16 @@
         android:label="MR"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Splash Screen Activity-->
+
+        <!-- Splash Screen Activity -->
         <activity android:name=".main.activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Main Activity-->
+        <!-- Main Activity -->
         <activity
             android:name=".main.activities.MainActivity"
             android:configChanges="keyboardHidden|screenLayout|screenSize|locale"

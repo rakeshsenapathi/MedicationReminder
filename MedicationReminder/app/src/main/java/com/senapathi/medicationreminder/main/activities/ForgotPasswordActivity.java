@@ -50,7 +50,6 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         String email = mEmailField.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
-            return;
         } else {
             dialog.showProgressDialog(ForgotPasswordActivity.this);
             mAuth.sendPasswordResetEmail(email)
