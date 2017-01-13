@@ -2,6 +2,7 @@ package com.senapathi.medicationreminder.main.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -102,7 +103,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+                                Snackbar snackbar = Snackbar
+                                        .make(findViewById(R.id.mainActivity), "Login Unsuccessful", Snackbar.LENGTH_LONG);
+                                snackbar.show();
                                 dialog.closeProgressDialog(MainActivity.this);
                             }
                         }

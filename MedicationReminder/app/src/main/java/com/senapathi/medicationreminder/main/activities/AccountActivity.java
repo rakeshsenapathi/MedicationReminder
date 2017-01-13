@@ -6,15 +6,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.auth.FirebaseAuth;
 import com.senapathi.medicationreminder.R;
+import com.senapathi.medicationreminder.main.utils.CircleTransform;
 
 /**
  * Created by Senapathi on 31-12-2016.
@@ -43,7 +48,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             }
         };
         //
-
         //
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.openDrawer, R.string.closeDrawer);
@@ -61,7 +65,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         mSIgnOut.setOnClickListener(this);
         //
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -97,5 +100,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onBackPressed() {
         // Here super() method is removed to make sure that BackButton is disabled.
+        finish();
     }
 }
