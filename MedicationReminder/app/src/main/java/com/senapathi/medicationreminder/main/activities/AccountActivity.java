@@ -29,6 +29,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() == null){
                     startActivity(new Intent(AccountActivity.this,MainActivity.class));
+                    finish();
                 }
             }
         };
@@ -52,5 +53,10 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         FirebaseAuth.getInstance().signOut();
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

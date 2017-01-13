@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (firebaseAuth.getCurrentUser() != null) {
                     dialog.closeProgressDialog(MainActivity.this);
                     startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                    finish();
                 }
             }
         };
@@ -112,11 +113,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Click Listener for ForgotPassword Button
             case R.id.fpwdtext:
                 startActivity(new Intent(MainActivity.this,ForgotPasswordActivity.class));
+                finish();
                 break;
 
             //Click Listener for Creating a NewAccount
             case R.id.newacctext:
                 startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+                finish();
                 break;
 
         }
@@ -127,4 +130,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onBackPressed();
         finish();
     }
+
 }
