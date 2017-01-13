@@ -67,4 +67,10 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         }
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ForgotPasswordActivity.this,MainActivity.class));
+    }
 }

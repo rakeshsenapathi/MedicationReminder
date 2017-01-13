@@ -112,13 +112,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             //Click Listener for ForgotPassword Button
             case R.id.fpwdtext:
-                startActivity(new Intent(MainActivity.this,ForgotPasswordActivity.class));
+                startActivity(new Intent(MainActivity.this, ForgotPasswordActivity.class));
                 finish();
                 break;
 
             //Click Listener for Creating a NewAccount
             case R.id.newacctext:
-                startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
                 finish();
                 break;
 

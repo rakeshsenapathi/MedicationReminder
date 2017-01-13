@@ -54,8 +54,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
                     dialog.closeProgressDialog(SignUpActivity.this);
-                    Toast.makeText(SignUpActivity.this, "SignUp sucessful",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                    Toast.makeText(SignUpActivity.this, "SignUp sucessful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 }
             }
         };
@@ -112,12 +112,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             // Click Listener for Login
             case R.id.logintext:
                 Toast.makeText(SignUpActivity.this, "Login", Toast.LENGTH_SHORT).show();
+                finish();
         }
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity( new Intent(SignUpActivity.this,MainActivity.class));
         finish();
     }
 }
