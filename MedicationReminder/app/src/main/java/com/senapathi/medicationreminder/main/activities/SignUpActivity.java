@@ -122,7 +122,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             // Click Listener for Login
             case R.id.logintext:
                 Toast.makeText(SignUpActivity.this, "Login", Toast.LENGTH_SHORT).show();
-                finish();
         }
     }
 

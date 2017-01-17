@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -62,6 +63,9 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         // Setting DisplayHome as enabled to enable the backbutton on the ActioBar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'> Medication Reminder </font>"));
 
         //Onclick listener to Signout
         Button mSIgnOut = (Button) findViewById(R.id.signout);
