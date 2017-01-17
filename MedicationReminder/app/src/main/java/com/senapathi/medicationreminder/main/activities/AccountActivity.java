@@ -39,12 +39,16 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private ActionBarDrawerToggle mToggle;
     private TextView mUserName;
     NavigationView mNavigationView;
+    private TextView navHeaderName;
+    private TextView navHeaderMail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.accountlayout);
+
+
 
         // Action Listener to listen to the auth state changes
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -70,7 +74,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         // Setting DisplayHome as enabled to enable the backbutton on the ActioBar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // This is to change the title color of the default action bar
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'> Medication Reminder </font>"));
 
@@ -79,15 +82,29 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         mSIgnOut.setOnClickListener(this);
         //
 
-        mUserName = (TextView) findViewById(R.id.setUserName);
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null) {
-            mUserName.setText(user.getDisplayName());
-        }
+
+
 
 
         //Getting the view for NavigationView
         mNavigationView = (NavigationView) findViewById(R.id.navigationView);
+
+        // Getting the views for email and pwd to display in NavHeader
+        View view = mNavigationView.getHeaderView(0);
+        mUserName = (TextView) findViewById(R.id.setUserName);
+        navHeaderName = (TextView) view.findViewById(R.id.name);
+        navHeaderMail = (TextView) view.findViewById(R.id.userEmailText);
+        //
+
+        //
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            mUserName.setText(user.getDisplayName());
+            navHeaderName.setText(user.getDisplayName());
+            navHeaderMail.setText(user.getEmail());
+        }
+        //
+
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -120,8 +137,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                 return true;
             }
         });
-
-
         //
 
     }
