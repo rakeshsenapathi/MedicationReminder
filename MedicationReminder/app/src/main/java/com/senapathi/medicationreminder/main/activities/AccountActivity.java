@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.senapathi.medicationreminder.R;
 import com.senapathi.medicationreminder.main.utils.CircleTransform;
 
@@ -30,6 +32,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private TextView mUserName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +67,13 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         Button mSIgnOut = (Button) findViewById(R.id.signout);
         mSIgnOut.setOnClickListener(this);
         //
+
+        mUserName = (TextView) findViewById(R.id.setUserName);
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user != null){
+            mUserName.setText(user.getDisplayName());
+        }
+
     }
 
     @Override

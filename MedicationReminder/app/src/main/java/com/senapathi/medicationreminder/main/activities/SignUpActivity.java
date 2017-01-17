@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.senapathi.medicationreminder.R;
 import com.senapathi.medicationreminder.main.utils.Dialog;
 
@@ -30,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private Button signupButton;
     private TextView mLogin;
     private FirebaseAuth mAuth;
+    private EditText mUserName;
     // Creating dialog object to access its dialog methods
     Dialog dialog = new Dialog();
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -46,15 +49,20 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mPwfField = (EditText) findViewById(R.id.pwdSignup);
         signupButton = (Button) findViewById(R.id.signupbtn);
         mLogin = (TextView) findViewById(R.id.logintext);
+        mUserName = (EditText) findViewById(R.id.UserNameText);
         //
 
         // AuthListener to get the current state of the user
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if ( user != null) {
                     dialog.closeProgressDialog(SignUpActivity.this);
                     Toast.makeText(SignUpActivity.this, "SignUp sucessful", Toast.LENGTH_SHORT).show();
+                    UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                                                    .setDisplayName(String.valueOf(mUserName.getText())).build();
+                    user.updateProfile(profileChangeRequest);
                     startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 }
             }
@@ -65,6 +73,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         signupButton.setOnClickListener(this);
         mLogin.setOnClickListener(this);
         //
+
 
     }
 
@@ -91,8 +100,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.signupbtn:
                 String email = mEmailField.getText().toString().trim();
                 String password = mPwfField.getText().toString().trim();
+                String username = mUserName.getText().toString().trim();
                 // Checking for EmptyFields
-                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(username)) {
                     Toast.makeText(SignUpActivity.this, "Empty fields", Toast.LENGTH_SHORT).show();
                 }
                 // If not found then SignUp with email,password to create a new user
