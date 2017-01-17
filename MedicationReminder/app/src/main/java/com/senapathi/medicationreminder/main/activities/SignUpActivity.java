@@ -57,11 +57,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if ( user != null) {
+                if (user != null) {
                     dialog.closeProgressDialog(SignUpActivity.this);
                     Toast.makeText(SignUpActivity.this, "SignUp sucessful", Toast.LENGTH_SHORT).show();
                     UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                                                                    .setDisplayName(String.valueOf(mUserName.getText())).build();
+                            .setDisplayName(String.valueOf(mUserName.getText())).build();
                     user.updateProfile(profileChangeRequest);
                     startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 }

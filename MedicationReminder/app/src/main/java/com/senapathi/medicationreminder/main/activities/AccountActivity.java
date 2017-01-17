@@ -6,15 +6,19 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -34,6 +38,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private TextView mUserName;
+    NavigationView mNavigationView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,9 +57,11 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             }
         };
         //
+
         //
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.openDrawer, R.string.closeDrawer);
+        //
 
         // Adding DrawerListener by passing DrawerToggle object
         mDrawerLayout.addDrawerListener(mToggle);
@@ -64,7 +71,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         // Setting DisplayHome as enabled to enable the backbutton on the ActioBar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //
+        // This is to change the title color of the default action bar
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'> Medication Reminder </font>"));
 
         //Onclick listener to Signout
@@ -74,20 +81,60 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         mUserName = (TextView) findViewById(R.id.setUserName);
         FirebaseUser user = mAuth.getCurrentUser();
-        if(user != null){
+        if (user != null) {
             mUserName.setText(user.getDisplayName());
         }
+
+
+        //Getting the view for NavigationView
+        mNavigationView = (NavigationView) findViewById(R.id.navigationView);
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+                switch (item.getItemId()) {
+
+                    case R.id.nav_signout:
+                        FirebaseAuth.getInstance().signOut();
+                        item.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_chat:
+                        Toast.makeText(AccountActivity.this, "Clicked on NAV_CHAT item", Toast.LENGTH_SHORT).show();
+                        item.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_heath:
+                        Toast.makeText(AccountActivity.this, "Clicked on NAV_HEALTH item", Toast.LENGTH_SHORT).show();
+                        item.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.nav_home:
+                        Toast.makeText(AccountActivity.this, "Clicked on NAV_HOME item", Toast.LENGTH_SHORT).show();
+                        item.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+        //
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+
         if (mToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+
     }
 
 

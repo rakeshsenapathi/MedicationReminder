@@ -64,8 +64,8 @@
                 android:drawableLeft="@mipmap/users"
                 android:drawablePadding="15dp"
                 android:hint="@string/username"
-                android:maxLines="1"
                 android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray" />
         </android.support.v7.widget.CardView>
@@ -73,9 +73,9 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
             app:cardBackgroundColor="#fff"
             app:cardElevation="3dp"
             app:cardPreventCornerOverlap="false"
@@ -90,8 +90,8 @@
                 android:drawableLeft="@mipmap/envelope"
                 android:drawablePadding="15dp"
                 android:hint="@string/email_id"
-                android:maxLines="1"
                 android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray" />
         </android.support.v7.widget.CardView>
@@ -129,20 +129,20 @@
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_marginTop="30dp"
-            android:textColor="@color/colorWhite"
             android:background="#4CAF50"
             android:text="Sign Up"
             android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
             android:textSize="15sp" />
 
         <TextView
-            android:layout_marginTop="10dp"
+            android:id="@+id/logintext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an account?"
-            android:id="@+id/logintext"
-            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_gravity="center"/>
+            android:text="Already have an account?"
+            android:textSize="15sp" />
     </LinearLayout>
 </ScrollView>

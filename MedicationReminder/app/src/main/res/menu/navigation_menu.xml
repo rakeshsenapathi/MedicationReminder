@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_home"
+    <item
+        android:id="@+id/nav_home"
         android:icon="@mipmap/ic_home_black_24dp"
-         android:title="Home"/>
-    <item android:id="@+id/nav_chat"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_chat"
         android:icon="@mipmap/ic_chat_black_24dp"
-        android:title="Chat"/>
-    <item android:id="@+id/nav_heath"
+        android:title="Chat" />
+    <item
+        android:id="@+id/nav_heath"
         android:icon="@mipmap/ic_local_pharmacy_black_24dp"
-        android:title="Health Tips"/>
-    <item android:id="@+id/nav_signout"
+        android:title="Health Tips" />
+    <item
+        android:id="@+id/nav_signout"
         android:icon="@mipmap/ic_exit_to_app_black_24dp"
-        android:title="Log Out"/>
+        android:title="Log Out" />
 
 </menu>
