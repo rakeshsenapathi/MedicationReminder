@@ -49,7 +49,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.accountlayout);
 
 
-
         // Action Listener to listen to the auth state changes
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -83,9 +82,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         //
 
 
-
-
-
         //Getting the view for NavigationView
         mNavigationView = (NavigationView) findViewById(R.id.navigationView);
 
@@ -100,8 +96,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             mUserName.setText(user.getDisplayName());
-            navHeaderName.setText(user.getDisplayName());
-            navHeaderMail.setText(user.getEmail());
+            navHeaderName.setText(user.getDisplayName()); //setting the name in NavHeader's TV
+            navHeaderMail.setText(user.getEmail()); //setting the email in NavHeader's TV
         }
         //
 
